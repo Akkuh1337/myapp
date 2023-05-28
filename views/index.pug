@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div
+        ul
+          li
+            a(href='/') Главная страница
+            if user
+              if can.view_clients
+                li
+                  a(href='/clients') Клиенты
+              if can.view_products
+                li
+                  a(href='/products') Товары
+              if can.view_uproducts
+                li
+                  a(href='/uproducts') Товары
+              if can.view_orders
+                li
+                  a(href='/orders') Заказы
+              if can.view_uorders
+                li
+                  a(href='/uorders') Заказы
+              if can.view_suppliers
+                li 
+                  a(href='/suppliers') Поставщики 
+              if can.view_delivery_items
+                li 
+                  a(href='/delivery_items') Доставка
+              if can.view_users
+                li
+                  a(href='/users') Пользователи
+              li
+                a(href='', id='Logout') Выйти
+            else
+                li
+                    a(href='', id='Login') Войти

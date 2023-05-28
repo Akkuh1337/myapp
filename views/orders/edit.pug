@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/orders.js')
+
+  h1= title
+  form(id='edit_order_form')
+    div.q-form-data
+      label(for="inplabel") Название
+      input#inplabel(type="text", value=order_label)
+    div.q-form-data
+      label(for="inpname") Клиент
+      input#inpname(type="int", value=client_label)
+    div.q-form-data
+      label(for="instatuses") Статус
+      input#instatuses(type="text", value=status)
+    div.q-form-data
+      label(for="inpamount") Количество
+      input#inpamount(type="NUMERIC(20,2)", value=amount)
+
+  div.q-buttons
+    button#save_order_changes Сохранить изменения
+    button#delete_order Удалить

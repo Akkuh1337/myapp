@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/delivery_items.js')
+
+  h1= title
+  button#create_delivery Оформить доставку
+  table#tbl_delivery_items
+    tr 
+      th Номер пункта
+      th Адрес
+      th Номер поставки
+      th Название товара
+      th Количество
+      th Сумма
+
+  div#create_delivery_popup.q-window
+    div.q-window-block(style="width:400px;height:220px;margin:-150px 0 0 -200px")
+      div.q-window-header Создать заказ
+        a#create_delivery_popup_close(style="position: relative;left: 300px;") X
+      div.q-window-body.q-form
+        div.q-window-filters-form
+          div.q-form-data
+            label(for="inpaddress") Адрес
+            input#inpaddress(type="text")
+          div.q-form-data
+            label(for="inpid") Номер поставки
+            input#inpid(type="int") 
+          div.q-form-data
+            label(for="inplabel") Название товара
+            input#inplabel(type="text")
+          div.q-form-data
+            label(for="inpamount") Количество
+            input#inpamount(type="NUMERIC(20,2)")
+          div.q-form-data
+            label(for="inpsumma") Сумма
+            input#inpsumma(type="NUMERIC(20,2)")
+
+      div.q-buttons
+        a#submit_create_delivery Оформить доставку
+        a#cancel_create_delivery Отменить

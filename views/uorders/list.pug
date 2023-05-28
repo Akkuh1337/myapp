@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/uorders.js')
+
+  h1= title
+  button(id='create_order') Создать заказ
+  table#tbl_uorders
+    tr 
+      th id
+      th Название
+      th Клиент
+      th Дата заказа
+      th Статус
+      th Сумма
+
+
+  div#create_order_popup.q-window
+    div.q-window-block(style="width:400px;height:220px;margin:-150px 0 0 -400px")
+      div.q-window-header Создать заказ
+        a#create_order_popup_close(style="position: relative;left: 300px;") X
+      div.q-window-body.q-form
+        div.q-window-filters-form
+          div.q-form-data
+            label(for="inplabel") Название
+            input#inplabel(type="text")
+          div.q-form-data
+            label(for="inpname") Клиент
+            input#inpname(type='text')
+          div.q-form-data
+            label(for="inpamount") Количество
+            input#inpamount(type="text")
+
+      div.q-buttons
+        a#submit_create_order Создать
+        a#cancel_create_order Отменить

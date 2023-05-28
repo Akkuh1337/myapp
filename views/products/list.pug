@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/products.js')
+
+  h1= title
+  button(id='create_product') Создать заказ
+  table#tbl_products
+    tr 
+      th id
+      th Название
+      th Цена
+      th Количество
+
+  div#create_product_popup.q-window
+    div.q-window-block(style="width:400px;height:220px;margin:-150px 0 0 -400px")
+      div.q-window-header Создать заказ
+        a#create_product_popup_close(style="position: relative;left: 300px;") X
+      div.q-window-body.q-form
+        div.q-window-filters-form
+          div.q-form-data
+            label(for="inplabel") Название
+            input#inplabel(type="text")
+          div.q-form-data
+            label(for="inpprice") Цена
+            input#inpprice(type="NUMERIC(20, 2)")
+          div.q-form-data
+            label(for="inpamount") Количество
+            input#inpamount(type="int")
+
+      div.q-buttons
+        a#submit_create_product Создать
+        a#cancel_create_product Отменить

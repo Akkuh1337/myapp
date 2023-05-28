@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/products.js')
+
+  h1= title
+  form(id='edit_product_form')
+    div.q-form-data
+      label(for="inplabel") Название
+      input#inplabel(type="text", value=label)
+    div.q-form-data
+      label(for="inpprice") Цена
+      input#inpprice(type="NUMERIC(20, 2)", value=price)
+    div.q-form-data
+      label(for="inpamount") Количество
+      input#inpamount(type="int", value=amount)
+
+  div.q-buttons
+    button#save_product_changes Сохранить изменения
+    button#delete_product Удалить

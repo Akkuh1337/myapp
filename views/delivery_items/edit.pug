@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  script(src='/javascripts/delivery_items.js')
+
+  h1= title
+  form(id='edit_delivery_form')
+    div.q-form-data
+      label(for="inpaddress") Адрес
+      input#inpaddress(type="text", value=delivery.address)
+    div.q-form-data
+      label(for="inpid") Номер поставки
+      input#inpid(type="int", value=delivery.delivery_id) 
+    div.q-form-data
+      label(for="inplabel") Название товара
+      input#inplabel(type="text", value=delivery.products_label)
+    div.q-form-data
+      label(for="inpamount") Количество
+      input#inpamount(type="NUMERIC(20,2)", value=delivery.amount)
+    div.q-form-data
+      label(for="inpsumma") Сумма
+      input#inpsumma(type="NUMERIC(20,2)", value=delivery.summa)
+
+  div.q-buttons
+    button#save_delivery_changes Сохранить изменения
+    button#delete_delivery Удалить
