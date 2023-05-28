@@ -90,6 +90,22 @@ describe('User Endpoints', () => {
       expect(res.body.delivery_items[0]).toHaveProperty('summa')
   });
 
+  it('Products amount > 0', async () => {
+    const res = await requestWithSupertest.get('/api/products');
+    expect(res.status).toEqual(200);
+    expect(res.type).toEqual(expect.stringContaining('json'));
+    expect(res.body.products.forEach(item => {
+          expect(item.amount).toBeGreaterThan(0)
+    }))
+  });
     
+  it('Delivery_items delivery_id > 0', async () => {
+    const res = await requestWithSupertest.get('/api/delivery_items');
+    expect(res.status).toEqual(200);
+    expect(res.type).toEqual(expect.stringContaining('json'));
+    expect(res.body.delivery_items.forEach(item => {
+          expect(item.delivery_id).toBeGreaterThan(0)
+    }))
+  });
   
 });
