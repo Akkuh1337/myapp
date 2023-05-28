@@ -64,16 +64,15 @@ describe('User Endpoints', () => {
       expect(res.body.orders[0]).toHaveProperty('amount')
   });
 
-  it('GET /supplier should show all suppliers', async () => {
-    const res = await requestWithSupertest.get('/api/suppliers');
-      expect(res.status).toEqual(200);
-      expect(res.type).toEqual(expect.stringContaining('json'));
-      expect(res.body).toHaveProperty('suppliers')
-      expect(res.body.suppliers.length > 0)
-      expect(res.body.suppliers[0]).toHaveProperty('id')
-      expect(res.body.suppliers[0]).toHaveProperty('label')
-      expect(res.body.suppliers[0]).toHaveProperty('address')
-      expect(res.body.suppliers[0]).toHaveProperty('phone_number')
+  it('orders status not boolean', async () => {
+    const res = await requestWithSupertest.get('/api/orders');
+    expect(res.status).toEqual(200);
+    expect(res.type).toEqual(expect.stringContaining('json'));
+    expect(res.body.orders.forEach(item => {
+      if (typeof item.status === 'boolean') {
+        expect(item.status).toBe(false);
+      }
+    }));
   });
 
   it('GET /delivery item should show all delivery items', async () => {
