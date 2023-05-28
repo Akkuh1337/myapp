@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', async function(req, res, next) {
   
-  res.render('uorders/list', { title: 'Информация о доставке'});
+  res.render('uorders/list', { title: 'Информация о заказе'});
 
 });
 

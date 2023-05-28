@@ -23,7 +23,7 @@ router.get('/edit/:id', async function(req, res, next) {
   
   if (product) {
     res.render('products/edit', {
-      title: 'Редактирование заказа',
+      title: 'Редактирование товаров',
       label: product.label,
       price: product.price,
       amount: product.amount
